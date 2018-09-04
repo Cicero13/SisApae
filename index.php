@@ -113,9 +113,6 @@
 					</div>
 				</div>
 			</div>
-			
-</body>
-</html>
 
 <?php
 		if(isset($_GET['login'])){
@@ -143,4 +140,7 @@
 		<?php  
 		}
 ?>
+</body>
+</html>
+
 	

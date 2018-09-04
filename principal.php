@@ -17,6 +17,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
 	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
+	<link rel="stylesheet" href="assets/vendor/dist/jquery-confirm.min.css">
 </head>
 
 <body>
@@ -93,7 +94,7 @@
 	<script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
 	<script src="assets/vendor/chartist/js/chartist.min.js"></script>
 	<script src="assets/scripts/klorofil-common.js"></script>
-	
+	<script src="../assets/vendor/dist/jquery-confirm.min.js"></script>
 	
 	  <div id="loginOk" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -107,11 +108,8 @@
                 </div>
             </div>
         </div>
-</body>
-
-</html>
-
-<?php
+		
+		<?php
 		if(isset($_GET['login'])){
 			?><script type="text/javascript">
 				$(window).load(function() {
@@ -121,3 +119,7 @@
 		<?php  
 		}
 ?>
+</body>
+
+</html>
+

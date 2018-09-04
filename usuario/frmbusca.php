@@ -17,6 +17,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
 	<link rel="icon" type="image/png" sizes="96x96" href="../assets/img/favicon.png">
+	<link rel="stylesheet" href="../assets/vendor/dist/jquery-confirm.min.css">
 </head>
 
 <body>
@@ -105,20 +106,62 @@
 											
 												if($consulta->num_rows > 0){
 													while($linha = $consulta->fetch_array(MYSQLI_ASSOC)){
-														echo '<tr>
-																<td>'.$linha['nome'].'</td>
-																<td>'.$linha['email'].'</td>
-																<td>...</td>
-																<td>
-																	<a title="Alterar" data-toggle="modal" data-target="#alterar'.$linha['id'].'" data-toggle="modal" class="btn btn-info" href="#">
-																		<i class="fa fa-edit" style="color: white;"></i><span class="icon-name"></span>
-																	</a>
-																	<a title="Excluir" data-toggle="modal" data-target="#deletar'.$linha['id'].'" data-toggle="modal" class="btn btn-danger" href="#">
-																		<i class="fa fa-trash" style="color: white;"></i><span class="icon-name"></span>
-																	</a>
-																</td>
-										
-														</tr>';
+														?>
+														<tr>
+															<td><?php echo $linha['nome'] ?></td>
+															<td><?php echo $linha['email'] ?></td>
+															<td>...</td>
+															<td>
+																<a title="Alterar" data-toggle="modal" data-target="#alterar<?php echo $linha['id'] ?>" class="btn btn-info" href="#">
+																	<i class="fa fa-edit" style="color: white;"></i><span class="icon-name"></span>
+																</a>
+																<a title="Excluir" data-toggle="modal" data-target="#deletar<?php echo $linha['id'] ?>" class="btn btn-danger" href="#">
+																	<i class="fa fa-trash" style="color: white;"></i><span class="icon-name"></span>
+																</a>
+																
+																<div id="alterar<?php echo $linha['id']; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+																	<div class="modal-dialog" role="document">
+																		<div class="modal-content">
+																			<form name="f1" method="POST" action="frmcadaltera.php">
+																				 <input type="hidden" id="id" name="id" value="<?php echo $linha['id']; ?>">
+																					<div class="modal-body">
+																						<div>
+																							<center><h3>Deseja alterar este usuário?</h3></center>
+																						</div>
+																					</div>
+																					<div class="modal-footer">
+																						<div class="center">
+																							<button type="submit" class="btn btn-success"><i class="fa fa-check"></i>&nbsp;Confirmar</button>
+																							<button class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp;Cancelar</button>
+																						</div>
+																					</div>
+																			</form>
+																		</div>
+																	</div>
+																</div>
+																<div id="deletar<?php echo $linha['id'];?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+																	<div class="modal-dialog" role="document">
+																		<div class="modal-content">
+																		<form name="f1" method="POST" action="delete.php">
+																			<input type="hidden" id="id" name="id" value="<?php echo $linha['id']; ?>">
+																				<div class="modal-body">
+																					<div>
+																						<center><h3>Deseja excluir este usuário?</h3></center>
+																					</div>
+																				</div>
+																		<div class="modal-footer">
+																			<div class="center">
+																				<button type="submit" class="btn btn-success"><i class="fa fa-check"></i>&nbsp;Confirmar</button>
+																				<button class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp;Cancelar</button>
+																			</div>
+																		</div>
+																		</form>
+																		</div>
+																	</div>
+																</div>
+															</td>
+														</tr>
+														<?php
 													}
 												} else {
 													echo 'Cosulta vazia';
@@ -150,55 +193,13 @@
 	<script src="../assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
 	<script src="../assets/vendor/chartist/js/chartist.min.js"></script>
 	<script src="../assets/scripts/klorofil-common.js"></script>
-</body>
+	<script src="../assets/vendor/bootstrap-notify/bootstrap-notify.js"></script>
+	<script src="../assets/vendor/dist/jquery-confirm.min.js"></script>
 	
-	<div id="alterar<?php echo $linha['id']; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <form name="f1" method="POST" action="frmaltera.php">
-					 <input type="hidden" id="id" name="id" value="<?php echo $linha['id']; ?>">
-                        <div class="modal-body">
-							<div>
-								<center><h3>Deseja alterar este usuário?</h3></center>
-							</div>
-						</div>
-                        <div class="modal-footer">
-							<div class="center">
-								<button type="submit" class="btn btn-success"><i class="fa fa-check"></i>&nbsp;Confirmar</button>
-								<button class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp;Cancelar</button>
-							</div>
-                        </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div id="deletar<?php echo $linha['id']; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <form name="f1" method="POST" action="delete.php">
-                <input type="hidden" id="acao" name="acao" value="deletar">
-                <input type="hidden" id="id" name="id" value="<?php echo $linha['id']; ?>">
-                    <div class="modal-body">
-						<div>
-							<center><h3>Deseja excluir este usuário?</h3></center>
-						</div>
-					</div>
-			<div class="modal-footer">
-				<div class="center">
-					<button type="submit" class="btn btn-success"><i class="fa fa-check"></i>&nbsp;Confirmar</button>
-					<button class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp;Cancelar</button>
-				</div>
-			</div>
-			</form>
-			</div>
-		</div>
-	</div>
-</html>
-
 <?php
 
-            if(isset($_GET['msg'])){
-                if ($_GET['msg']=="cadOk") {
+            if(isset($_GET['insert'])){
+                if ($_GET['insert']=="ok") {
                     ?>
                         <script>
                             $(function(){
@@ -227,7 +228,9 @@
                         </script>
                     <?php
                 }
-                if($_GET['msg'] == 'alterOk'){
+			}
+			if(isset($_GET['update'])){
+				if($_GET['update'] == 'ok'){
                 ?>
                     <script>
                         $(function(){
@@ -255,8 +258,10 @@
                           });
                     </script>
                 <?php
-                }
-                if($_GET['msg'] == 'delOk'){
+				}
+			}
+			if(isset($_GET['delete'])){
+				if($_GET['delete'] == 'ok'){
                     ?>
                         <script>
                             $(function(){
@@ -285,6 +290,8 @@
                         </script>
 
                     <?php
-                }
-            } 
+				}
+			}
         ?>
+</body>
+</html>

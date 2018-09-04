@@ -3,11 +3,11 @@
 	include('../banco.php');
 	
 	//Recebendo Variaveis
-	$cod = $_GET['cod'];
+	$id = $_POST['id'];
 	
 	// Criar O Delete
-	$sql = "delete from tbusuario 
-					   where codusu = $cod";
+	$sql = "delete from tbusu
+					   where id = $id";
 	//Executando O Comando				   
 	$delete = $conexao->query($sql);
 	

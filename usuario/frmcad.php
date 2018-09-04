@@ -17,6 +17,17 @@
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
 	<link rel="icon" type="image/png" sizes="96x96" href="../assets/img/favicon.png">
+	<link rel="stylesheet" href="../assets/vendor/dist/jquery-confirm.min.css">
+	<script>
+			function validar(){
+				if(confirm("Deseja Cadastrar esse Usuário ?")){
+			
+			
+				} else {
+					return false;
+				}
+			}
+	</script>
 </head>
 
 <body>
@@ -64,7 +75,7 @@
 								<div class="panel-heading">
 									<center><h3 class="panel-title">Usuários Cadastrados </h3></center>
 									<br>
-									<form name="f1" method="POST" action="salvar.php">
+									<form name="f1" onsubmit="return validar();" method="POST" action="salvar.php">
 										<div class="form-group">
 											<label for="exampleInputEmail1">Nome:</label>
 											<input type="text" class="form-control" id="nome" name="nome" aria-describedby="emailHelp" placeholder="Informe seu Nome" required="">
@@ -102,141 +113,25 @@
 	<script src="../assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
 	<script src="../assets/vendor/chartist/js/chartist.min.js"></script>
 	<script src="../assets/scripts/klorofil-common.js"></script>
-</body>
+	<script src="../assets/vendor/dist/jquery-confirm.min.js"></script>
 	
-	<div id="alterar<?php echo $linha['id']; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <form name="f1" method="POST" action="frmaltera.php">
-					 <input type="hidden" id="id" name="id" value="<?php echo $linha['id']; ?>">
-                        <div class="modal-body">
-							<div>
-								<center><h3>Deseja alterar este usuário?</h3></center>
-							</div>
-						</div>
-                        <div class="modal-footer">
-							<div class="center">
-								<button type="submit" class="btn btn-success"><i class="fa fa-check"></i>&nbsp;Confirmar</button>
-								<button class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp;Cancelar</button>
-							</div>
-                        </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div id="deletar<?php echo $linha['id']; ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <form name="f1" method="POST" action="delete.php">
-                <input type="hidden" id="acao" name="acao" value="deletar">
-                <input type="hidden" id="id" name="id" value="<?php echo $linha['id']; ?>">
-                    <div class="modal-body">
+	<div id="validar" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
 						<div>
-							<center><h3>Deseja excluir este usuário?</h3></center>
+							<center><h3>Deseja Cadastrar este usuário?</h3></center>
 						</div>
-					</div>
-			<div class="modal-footer">
-				<div class="center">
-					<button type="submit" class="btn btn-success"><i class="fa fa-check"></i>&nbsp;Confirmar</button>
-					<button class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp;Cancelar</button>
+						<div class="modal-footer">
+							<div class="center">
+								<button type="submit" id="sim" class="btn btn-success"><i class="fa fa-check"></i>&nbsp;Confirmar</button>
+								<button class="btn btn-danger" id="nao" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp;Cancelar</button>
+							</div>
+						</div>
 				</div>
-			</div>
-			</form>
 			</div>
 		</div>
 	</div>
+</body>
 </html>
 
-<?php
-
-            if(isset($_GET['msg'])){
-                if ($_GET['msg']=="cadOk") {
-                    ?>
-                        <script>
-                            $(function(){
-                                $(window).load(function(){
-                                  $.notify({
-                                    title: '<strong>FEITO!</strong> <br />',
-                                    icon: 'glyphicon glyphicon-ok',
-                                    message: "Cadastro realizado com sucesso!"
-                                  },{
-                                    type: 'success',
-                                    delay: 2,
-                                    animate: {
-                                        enter: 'animated fadeInDown',
-                                        exit: 'animated fadeOutRight'
-                                    },
-                                    placement: {
-                                      from: "top",
-                                      align: "center"
-                                    },
-                                    offset: 100,
-                                    spacing: 100,
-                                    z_index: 9999,
-                                  });
-                                });
-                              });
-                        </script>
-                    <?php
-                }
-                if($_GET['msg'] == 'alterOk'){
-                ?>
-                    <script>
-                        $(function(){
-                            $(window).load(function(){
-                              $.notify({
-                                title: '<strong>FEITO!</strong> <br />',
-                                icon: 'glyphicon glyphicon-ok',
-                                message: "Dados alterados com sucesso!"
-                              },{
-                                type: 'info',
-                                delay: 2,
-                                animate: {
-                                    enter: 'animated fadeInDown',
-                                    exit: 'animated fadeOutRight'
-                                },
-                                placement: {
-                                  from: "top",
-                                  align: "center"
-                                },
-                                offset: 100,
-                                spacing: 100,
-                                z_index: 9999,
-                              });
-                            });
-                          });
-                    </script>
-                <?php
-                }
-                if($_GET['msg'] == 'delOk'){
-                    ?>
-                        <script>
-                            $(function(){
-                                $(window).load(function(){
-                                  $.notify({
-                                    title: '<strong>FEITO!</strong> <br />',
-                                    icon: 'glyphicon glyphicon-ok',
-                                    message: "O usuário foi deletado!"
-                                  },{
-                                    type: 'danger',
-                                    delay: 2,
-                                    animate: {
-                                        enter: 'animated fadeInDown',
-                                        exit: 'animated fadeOutRight'
-                                    },
-                                    placement: {
-                                      from: "top",
-                                      align: "center"
-                                    },
-                                    offset: 100,
-                                    spacing: 100,
-                                    z_index: 9999,
-                                  });
-                                });
-                              });
-                        </script>
-
-                    <?php
-                }
-            } 
-        ?>

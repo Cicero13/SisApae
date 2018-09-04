@@ -3,17 +3,17 @@
 	include('../banco.php');
 	
 	//Recebendo Variaveis
-	$codigo = $_POST['codusu'];
+	$codigo = $_POST['id'];
 	$nome = $_POST['nome'];
 	$email = $_POST['email'];
 	$senha = $_POST['senha'];
 	
 	//Criar o Update
-	$sql = "update tbusuario set
+	$sql = "update tbusu set
 					   nome = '$nome',
 					   email = '$email',
 					   senha = '$senha'
-					   where codusu = $codigo";
+					   where id = $codigo";
 		
 	//Executo o comando
 	$alterar = $conexao->query($sql);

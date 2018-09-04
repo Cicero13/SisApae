@@ -50,7 +50,7 @@
 				<nav>
 					<ul class="nav">
 						<li><a href="../principal.php" class="active"><i class="lnr lnr-home"></i> <span>Início</span></a></li>
-						<li><a href="../principal.php" class=""><i class="lnr lnr-undo"></i> <span>Voltar</span></a></li>
+						<li><a href="frmbusca.php" class=""><i class="lnr lnr-undo"></i> <span>Voltar</span></a></li>
 					</ul>
 				</nav>
 			</div>
@@ -62,77 +62,29 @@
 					<div class="col-md-12">
 							<div class="panel">
 								<div class="panel-heading">
-									<center><h3 class="panel-title">Usuários Cadastrados </h3></center>
-								</div>
-								<div class="panel-body">
-									<a href="frmcad.php" class="btn btn-md btn-success pull-right">Cadastrar novo</a>
+									<center><h3 class="panel-title">Alteração de Usuários</h3></center>
 									<br>
-								<form name="f1" method="POST" action="frmbusca.php"><br>
-									<div class="input-group text-left">
-										<input class="form-control" type="text" name="texto" placeholder="Texto para busca aqui">
-										<span class="input-group-btn">
-										<button class="btn btn-md btn-primary"><i class="fa fa-search"></i> Buscar</button>
-										</span>   
-									</div>
-								</form>	
-								<br>
-									<table class="table table-hover">
-										<thead>
-											<tr>
-												<th>NOME</th>
-												<th>EMAIL</th>
-												<th>SENHA</th>
-												<th>OPÇÕES</th>
-											</tr>
-										</thead>
-										<tbody>
-										   <?php
-											if(isset($_POST['texto'])){
-												//Recebendo Valor do Campo Busca
-												$texto = $_POST['texto'];
-												
-												//Acesso ao Banco
-												include('../banco.php');
-												
-												//Criando a Consulta
-												$sql = "select * from tbusu 	
-														 where nome like
-														 '%$texto%'";
-														 
-													
-												$consulta = $conexao->query($sql);
-												
-											
-												if($consulta->num_rows > 0){
-													while($linha = $consulta->fetch_array(MYSQLI_ASSOC)){
-														echo '<tr>
-																<td>'.$linha['nome'].'</td>
-																<td>'.$linha['email'].'</td>
-																<td>...</td>
-																<td>
-																	<a title="Alterar" data-toggle="modal" data-target="#alterar'.$linha['id'].'" data-toggle="modal" class="btn btn-info" href="#">
-																		<i class="fa fa-edit" style="color: white;"></i><span class="icon-name"></span>
-																	</a>
-																	<a title="Excluir" data-toggle="modal" data-target="#deletar'.$linha['id'].'" data-toggle="modal" class="btn btn-danger" href="#">
-																		<i class="fa fa-trash" style="color: white;"></i><span class="icon-name"></span>
-																	</a>
-																</td>
-										
-														</tr>';
-													}
-												} else {
-													echo 'Cosulta vazia';
-												}
-														
-											}
-											
-										?>	           
-										</tbody>
-									</table>
+									<form name="f1" method="POST" action="salvar.php">
+										<div class="form-group">
+											<label for="exampleInputEmail1">Nome:</label>
+											<input type="text" class="form-control" id="nome" name="nome" aria-describedby="emailHelp" placeholder="Informe seu Nome" required="">
+										</div>
+										<div class="form-group">
+											<label for="exampleInputEmail1">Email:</label>
+											<input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Informe seu Email" required="">
+										</div>
+										<div class="form-group">
+											<label for="exampleInputPassword1">Senha:</label>
+											<input type="password" class="form-control" id="senha" name="senha" placeholder="Informe sua Senha" required="">
+										</div>
+									
 								</div>
+									<center><button type="submit" class="btn btn-success">Alterar</button></center>
+									</form>	
+								<br>
 							</div>
-							<!-- END TABLE HOVER -->
-						</div>
+						
+					</div>
 			</div>
 		</div>
 		<div class="clearfix"></div>

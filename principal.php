@@ -52,12 +52,13 @@
 					<ul class="nav">
 						<li><a href="principal.php" class="active"><i class="lnr lnr-home"></i> <span>Início</span></a></li>
 						<li>
-							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-add"></i><span>Cadastros</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-add"></i><span>Gerenciamnto</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
 								<ul class="nav">
-									<li><a href="usuario/frmbusca.php" class="">Usuários</a></li>
-                                                                        <li><a href="procedimento/frmbusca.php" class="">Procedimentos</a></li>
-									<li><a href="#" class="">...</a></li>
+									<li><a href="usuario/frmbusca.php" class=""><i class="fa fa-user"></i>Usuário</a></li>
+									<li><a href="assistido/frmbusca.php" class=""><i class="fa fa-child"></i>Assistido</a></li>
+									<li><a href="#" class=""><i class="fa fa-user-md"></i>Proficional</a></li>
+									<li><a href="#" class=""><i class="fa fa-tasks"></i>Procedimentos</a></li>
 								</ul>
 							</div>
 						</li>

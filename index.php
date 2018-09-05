@@ -32,7 +32,7 @@
 					<div class="left">
 						<div class="content">
 							<div class="header">
-								<div class="logo text-center"><img src="assets/img/apae.png" alt="Klorofil Logo"></div>
+								<div class="logo text-center"><img src="assets/img/apae1.jpg" alt="Klorofil Logo"></div>
 								<p class="lead">Informe seus dados de acesso</p>
 							</div>
 							<form class="form-auth-small" action="login.php" method="POST">

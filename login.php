@@ -1,5 +1,4 @@
 <?php
-   //acesso ao banco
    include ('banco.php');
    
    //recebendo as variáveis    

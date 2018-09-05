@@ -23,7 +23,7 @@
 	<div id="wrapper">
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="brand">
-				<a href="../principal.php"><img src="../assets/img/apae.png" alt="Apae Logo" class="img-responsive logo"></a>
+				<a href="../principal.php"><img src="../assets/img/apae1.jpg" alt="Apae Logo" class="img-responsive logo"></a>
 			</div>
 			<div class="container-fluid">
 				<div class="navbar-btn">

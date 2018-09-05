@@ -24,7 +24,7 @@
 	<div id="wrapper">
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="brand">
-				<a href="principal.php"><img src="assets/img/apae.png" alt="Apae Logo" class="img-responsive logo"></a>
+				<a href="principal.php"><img src="assets/img/apae1.jpg" alt="Apae Logo" class="img-responsive logo"></a>
 			</div>
 			<div class="container-fluid">
 				<div class="navbar-btn">
@@ -57,8 +57,8 @@
 								<ul class="nav">
 									<li><a href="usuario/frmbusca.php" class=""><i class="fa fa-user"></i>Usuário</a></li>
 									<li><a href="assistido/frmbusca.php" class=""><i class="fa fa-child"></i>Assistido</a></li>
-                                                                        <li><a href="profissional/frmbusca.php" class=""><i class="fa fa-user-md"></i>Proficional</a></li>
-                                                                        <li><a href="procedimento/frmbusca.php" class=""><i class="fa fa-tasks"></i>Procedimentos</a></li>
+                                    <li><a href="profissional/frmbusca.php" class=""><i class="fa fa-user-md"></i>Proficional</a></li>
+                                    <li><a href="procedimento/frmbusca.php" class=""><i class="fa fa-tasks"></i>Procedimentos</a></li>
 								</ul>
 							</div>
 						</li>

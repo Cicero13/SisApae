@@ -1,9 +1,9 @@
 <?php
-    if($_SERVER['HTTP_HOST'] == 'matheuslima201715.000webhostapp.com'){
+    if($_SERVER['HTTP_HOST'] == 'app-1536113856.000webhostapp.com'){
         $hostname_conexao = "localhost";
-	$username_conexao = "id6996299_root";
+	$username_conexao = "id7022416_root";
 	$password_conexao = "123456";
-	$database_conexao = "id6996299_dbapae";
+	$database_conexao = "id7022416_dbapae";
         $database_porta = "3306";
     } else {
         $hostname_conexao = "localhost";

@@ -85,10 +85,10 @@
 								<div class="panel-heading">
 									<center><h3 class="panel-title">Alteração de Usuários</h3></center>
 									<br>
-									<form name="f1" onsubmit="return validar();" method="POST" action="salvar.php">
+									<form name="f1" onsubmit="return validar();" method="POST" action="alterar.php">
 										<div class="form-group">
 											<label for="exampleInputEmail1">ID:</label>
-											<input type="text" class="form-control" id="id" name="id" aria-describedby="emailHelp" placeholder="ID" value="<?php echo $linha['id'];?>" disabled="disabled" required="">
+                                                                                        <input type="text" class="form-control" id="id" name="id" aria-describedby="emailHelp" placeholder="ID" value="<?php echo $linha['id'];?>" readonly="true" required="">
 										</div>
 										<div class="form-group">
 											<label for="exampleInputEmail1">Nome:</label>

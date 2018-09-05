@@ -56,6 +56,7 @@
 							<div id="subPages" class="collapse ">
 								<ul class="nav">
 									<li><a href="usuario/frmbusca.php" class="">Usuários</a></li>
+                                                                        <li><a href="procedimento/frmbusca.php" class="">Procedimentos</a></li>
 									<li><a href="#" class="">...</a></li>
 								</ul>
 							</div>

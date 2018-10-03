@@ -182,11 +182,11 @@
 											<input style="width: 300px" type="text" class="form-control" id="fone_resp" name="fone_resp" placeholder="Informe o Telefone do Responsável" value="<?php echo $linha['fone_resp']; ?>">
 										</div>
 										<div class="form-group">
-											<label for="exampleInputPassword1">Diagnóstico <font color="red">*</font>:</label>
+											<label for="exampleInputPassword1">Diagnóstico <font color="red"></font>:</label>
 											<input style="width: 300px" type="textarea" class="form-control" id="diagnostico" name="diagnostico" placeholder="Informe o Diagnóstico do Assistido" value="<?php echo $linha['diagnostico']; ?>" required="">
 										</div>
 										<div class="form-group">
-											<label for="exampleInputPassword1">Gaveta da Documentação <font color="red">*</font>:</label>
+											<label for="exampleInputPassword1">Gaveta da Documentação <font color="red"></font>:</label>
 											<input style="width: 300px" type="text" class="form-control" id="gaveta" name="gaveta" placeholder="Informe a Gaveta onde se encontra a documentação" value="<?php echo $linha['gaveta']; ?>" required="">
 										</div>
 									
@@ -201,7 +201,7 @@
 		</div>
 		<div class="clearfix"></div>
 		<footer>
-			<?php include"../rodape.php"; ?>
+			
 		</footer>
 	</div>
 	<!-- END WRAPPER -->
@@ -213,5 +213,13 @@
 	<script src="../assets/vendor/chartist/js/chartist.min.js"></script>
 	<script src="../assets/scripts/klorofil-common.js"></script>
 	<script src="../assets/vendor/dist/jquery-confirm.min.js"></script>
+	<script type="text/javascript" src="../assets/vendor/jquery-1.2.6.pack.js"></script>
+	<script type="text/javascript" src="../assets/vendor/jquery.maskedinput-1.1.4.pack.js"/></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+			$("#fone").mask("(99)99999-9999")
+			$("#fone_resp").mask("(99)99999-9999")
+	})
+	</script>
 </body>
 </html>

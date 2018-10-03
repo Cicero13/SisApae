@@ -25,11 +25,11 @@
 	$gaveta = $_POST['gaveta'];
 	
 	$sql = "insert into tbpac(codpac,nome,cns,nascimento,sexo,endereco,bairro,cidade,cep,uf,raca_cor,pai,mae,fone,fone_resp,deficiencia,diagnostico,cid,ibge,gaveta)
-					   values(null,'$nome','$cns','$nascimento','$sexo','$endereco','$bairro','$cidade','$cep','$uf','$raca_cor','$pai','$mae','$fone','$fone_resp','$deficiencia','$diagnostico','$cid','$ibge','$gaveta'";
+					   values (null,'$nome','$cns','$nascimento','$sexo','$endereco','$bairro','$cidade','$cep','$uf','$raca_cor','$pai','$mae','$fone','$fone_resp','$deficiencia','$diagnostico','$cid','$ibge','$gaveta')";
 					   
 	$inserir = $conexao->query($sql);
 	
-	if($inserir==true){
+	if($inserir == true){
 		header('Location: frmbusca.php?insert=ok');
 	}else{
 		header('Location: frmcad.php?insert=erro');

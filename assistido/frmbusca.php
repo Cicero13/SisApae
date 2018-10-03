@@ -53,10 +53,27 @@
 					<div class="col-md-12">
 							<div class="panel">
 								<div class="panel-heading">
-									<center><h3 class="panel-title">Cadastro de Assistidos</h3></center>
+									<center><h3 class="panel-title">Gerenciamento de Assistidos</h3></center>
 								</div>
 								<div class="panel-body">
-									<a href="frmcad.php" class="btn btn-md btn-success pull-right">Cadastrar novo</a>
+									<div id="formAss" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+											<div class="modal-dialog" role="document">
+												<div class="modal-content">
+													<div class="modal-body">
+															<div>
+																<center><h3>Deseja Cadastrar este Assistido?</h3></center>
+															</div>
+															<div class="modal-footer">
+																<div class="center">
+																	<a href="frmcad.php"><button type="submit"  class="btn btn-success"><i class="fa fa-check"></i>&nbsp;Confirmar</button></a>
+																	<button class="btn btn-danger" id="nao" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp;Cancelar</button>
+																</div>
+															</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									<a href="#" data-toggle="modal"  data-target="#formAss" class="btn btn-md btn-success pull-right">Cadastrar novo</a>
 									<br>
 								<form name="f1" method="POST" action="frmbusca.php"><br>
 									<div class="input-group text-left">

@@ -66,65 +66,65 @@
 									<br>
 									<form name="f1" onsubmit="return validar();" method="POST" action="salvar.php">
 										<div class="form-group">
-											<label for="exampleInputEmail1">Nome <font color="red">*</font>:</label>
-											<input type="text" class="form-control" id="nome" name="nome" aria-describedby="emailHelp" placeholder="Informe o Nome do Assistido" required="">
+											<label for="exampleInputEmail1">Nome <font color="red"></font>:</label>
+											<input type="text" class="form-control" maxlength="50"  name="nome" aria-describedby="emailHelp" placeholder="Informe o Nome do Assistido" required="">
 										</div>
 										<div class="form-group">
-											<label for="exampleInputEmail1">Necessidade Especial <font color="red">*</font>:</label>
-											<input type="text" class="form-control" id="deficiencia" name="deficiencia" aria-describedby="emailHelp" placeholder="Informe a Necessidade Especial do Assistido" required="">
+											<label for="exampleInputEmail1">Necessidade Especial <font color="red"></font>:</label>
+											<input type="text" class="form-control" maxlength="50"  name="deficiencia" aria-describedby="emailHelp" placeholder="Informe a Necessidade Especial do Assistido" required="">
 										</div>
 										<div class="form-group">
-											<label for="exampleInputPassword1">CNS <font color="red">*</font>:</label>
-											<input type="text" class="form-control" id="cns" name="cns" placeholder="Informe o CNS" required="">
+											<label for="exampleInputPassword1">CNS <font color="red"></font>:</label>
+											<input type="text" class="form-control" maxlength="18" name="cns" placeholder="Informe o CNS" required="">
 										</div>
 										<div class="form-group">
-											<label for="exampleInputPassword1">CID <font color="red">*</font>:</label>
-											<input type="text" class="form-control" id="cid" name="cid" placeholder="Informe o CID" required="">
+											<label for="exampleInputPassword1">CID <font color="red"></font>:</label>
+											<input type="text" class="form-control" maxlength="20" name="cid" placeholder="Informe o CID" required="">
 										</div>
 										<div class="form-group">
-											<label for="exampleInputPassword1">IBGE <font color="red">*</font>:</label>
-											<input type="text" class="form-control" id="ibge" name="ibge" placeholder="Informe o IBGE" required="">
+											<label for="exampleInputPassword1">IBGE <font color="red"></font>:</label>
+											<input type="text" class="form-control"  maxlength="10" name="ibge" placeholder="Informe o IBGE" required="">
 										</div>
 										<div class="form-group">
-											<label for="exampleInputPassword1">Pai <font color="red">*</font>:</label>
-											<input type="text" class="form-control" id="pai" name="pai" placeholder="Informe o Nome do Pai do Assistido" required="">
+											<label for="exampleInputPassword1">Pai <font color="red"></font>:</label>
+											<input type="text" class="form-control" maxlength="50" name="pai" placeholder="Informe o Nome do Pai do Assistido" required="">
 										</div>
 										<div class="form-group">
-											<label for="exampleInputPassword1">Mãe <font color="red">*</font>:</label>
-											<input type="text" class="form-control" id="mae" name="mae" placeholder="Informe o Nome da Mãe do Assistido" required="">
+											<label for="exampleInputPassword1">Mãe <font color="red"></font>:</label>
+											<input type="text" class="form-control" maxlength="50" name="mae" placeholder="Informe o Nome da Mãe do Assistido" required="">
 										</div>
 										<div class="form-group">
-											<label for="exampleInputPassword1">Endereço <font color="red">*</font>:</label>
-											<input style="width: 400px" type="text" class="form-control" id="endereco" name="endereco" placeholder="Informe o Endereço do Assistido" required="">
+											<label for="exampleInputPassword1">Endereço <font color="red"></font>:</label>
+											<input style="width: 400px" type="text" maxlength="50" class="form-control"  name="endereco" placeholder="Informe o Endereço do Assistido" required="">
 										</div>
 										<div class="form-group">
-											<label for="exampleInputPassword1">Bairro <font color="red">*</font>:</label>
-											<input style="width: 400px" type="text" class="form-control" id="bairro" name="bairro" placeholder="Informe o Bairro do Assistido" required="">
+											<label for="exampleInputPassword1">Bairro <font color="red"></font>:</label>
+											<input style="width: 400px" type="text" maxlength="50"class="form-control"  name="bairro" placeholder="Informe o Bairro do Assistido" required="">
 										</div>
 										<div class="form-group">
-											<label for="exampleInputPassword1">CEP <font color="red">*</font>:</label>
-											<input style="width: 300px" type="text" class="form-control" id="cep" name="cep" placeholder="Informe o CEP do Assistido" required="">
+											<label for="exampleInputPassword1">CEP <font color="red"></font>:</label>
+											<input style="width: 300px" type="text"maxlength="10" class="form-control"  name="cep" placeholder="Informe o CEP do Assistido" required="">
 										</div>
 										<div class="form-group">
-											<label for="exampleInputPassword1">Estado <font color="red">*</font><font color="grey">: (Ex.: CE)</font></label>
-											<input style="width: 300px" type="text" class="form-control" id="uf" name="uf" placeholder="Informe o Estado do Assistido" required="">
+											<label for="exampleInputPassword1">Estado <font color="red"></font><font color="grey">: (Ex.: CE)</font></label>
+											<input style="width: 300px" type="text" maxlength="2" class="form-control"  name="uf" placeholder="Informe o Estado do Assistido" required="">
 										</div>
 										<div class="form-group">
-											<label for="exampleInputPassword1">Cidade <font color="red">*</font>:</label>
-											<input style="width: 300px" type="text" class="form-control" id="cidade" name="cidade" placeholder="Informe a Cidade do Assistido" required="">
+											<label for="exampleInputPassword1">Cidade <font color="red"></font>:</label>
+											<input style="width: 300px" type="text"maxlength="40" class="form-control"  name="cidade" placeholder="Informe a Cidade do Assistido" required="">
 										</div>
 										<div class="form-group">
-											<label for="exampleInputPassword1">Data de Nascimento <font color="red">*</font>:</label>
-											<input title="Selecione a Data do Nascimento do Assistido" style="width: 300px" type="date" class="form-control" id="nascimento" name="nascimento"  required="">
+											<label for="exampleInputPassword1">Data de Nascimento <font color="red"></font>:</label>
+											<input title="Selecione a Data do Nascimento do Assistido" style="width: 300px" type="date" class="form-control"  name="nascimento"  required="">
 										</div>
 										<div class="form-group" >
-											<label>Sexo<font color="red">*</font>:</label>
+											<label>Sexo<font color="red"></font>:</label>
 											<select name="sexo" title="Selecione o Sexo do Assistido" class="form-control" style="width: 300px">
 												<option value="m">Masculino</option>
 												<option value="f">Feminino</option>
 											</select>
 										</div>
-										<label>Raça/Cor<font color="red">*</font>:</label>
+										<label>Raça/Cor<font color="red"></font>:</label>
 										<div class="form-group" >
 											<select name="raca_cor" title="Selecione a Raça ou Cor do Assistido" class="form-control" style="width: 300px">
 												<option value="branco">Branco</option>
@@ -135,19 +135,19 @@
 										</div>
 										<div class="form-group">
 											<label for="exampleInputPassword1">Telefone(Assistido):</label>
-											<input style="width: 300px" type="text" class="form-control" id="fone" name="fone" placeholder="Informe o Telefone do Assistido">
+											<input style="width: 300px" type="text" maxlength="14" class="form-control" id="fone" name="fone" placeholder="Informe o Telefone do Assistido">
 										</div>
 										<div class="form-group">
 											<label for="exampleInputPassword1">Telefone(Responsável):</label>
-											<input style="width: 300px" type="text" class="form-control" id="fone_resp" name="fone_resp" placeholder="Informe o Telefone do Responsável">
+											<input style="width: 300px" type="text" maxlength="14" class="form-control" id="fone_resp" name="fone_resp" placeholder="Informe o Telefone do Responsável">
 										</div>
 										<div class="form-group">
-											<label for="exampleInputPassword1">Diagnóstico <font color="red">*</font>:</label>
-											<input style="width: 300px" type="textarea" class="form-control" id="diagnostico" name="diagnostico" placeholder="Informe o Diagnóstico do Assistido" required="">
+											<label for="exampleInputPassword1">Diagnóstico <font color="red"></font>:</label>
+											<input style="width: 300px" type="textarea"  maxlength="400"class="form-control" name="diagnostico" placeholder="Informe o Diagnóstico do Assistido" required="">
 										</div>
 										<div class="form-group">
-											<label for="exampleInputPassword1">Gaveta da Documentação <font color="red">*</font>:</label>
-											<input style="width: 300px" type="text" class="form-control" id="gaveta" name="gaveta" placeholder="Informe a Gaveta onde se encontra a documentação" required="">
+											<label for="exampleInputPassword1">Gaveta da Documentação <font color="red"></font>:</label>
+											<input style="width: 300px" type="text" maxlength="10"class="form-control" name="gaveta" placeholder="Informe a Gaveta onde se encontra a documentação" required="">
 										</div>
 										
 								</div>
@@ -175,6 +175,14 @@
 	<script src="../assets/vendor/chartist/js/chartist.min.js"></script>
 	<script src="../assets/scripts/klorofil-common.js"></script>
 	<script src="../assets/vendor/dist/jquery-confirm.min.js"></script>
+	<script type="text/javascript" src="../assets/vendor/jquery-1.2.6.pack.js"></script>
+	<script type="text/javascript" src="../assets/vendor/jquery.maskedinput-1.1.4.pack.js"/></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+			$("#fone").mask("(99)99999-9999")
+			$("#fone_resp").mask("(99)99999-9999")
+	})
+	</script>
 	
 	<div id="validar" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">

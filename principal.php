@@ -52,17 +52,17 @@
 					<ul class="nav">
 						<li><a href="principal.php" class="active"><i class="lnr lnr-home"></i> <span>Início</span></a></li>
 						<li>
-							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-add"></i><span>Gerenciamnto</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-add"></i><span>Gerenciamento</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
 								<ul class="nav">
 									<li><a href="usuario/frmbusca.php" class=""><i class="fa fa-user"></i>Usuário</a></li>
 									<li><a href="assistido/frmbusca.php" class=""><i class="fa fa-child"></i>Assistido</a></li>
-                                    <li><a href="profissional/frmbusca.php" class=""><i class="fa fa-user-md"></i>Proficional</a></li>
-                                    <li><a href="procedimento/frmbusca.php" class=""><i class="fa fa-tasks"></i>Procedimentos</a></li>
+                                                                        <li><a href="profissional/frmbusca.php" class=""><i class="fa fa-user-md"></i>Profissional</a></li>
+                                                                        <li><a href="procedimento/frmbusca.php" class=""><i class="fa fa-tasks"></i>Procedimentos</a></li>
 								</ul>
 							</div>
 						</li>
-						<!--<li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>-->
+                                                <li><a href="atendimento/frmbusca.php" class=""><i class="lnr lnr-dice"></i> <span>Atendimentos</span></a></li>
 					</ul>
 				</nav>
 			</div>

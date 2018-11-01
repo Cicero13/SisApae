@@ -1,20 +1,17 @@
 <?php
 	//Conexão com o Banco de Dados
 	include('../banco.php');
-	
 	//Recebendo Variaveis
 	$id = $_POST['id'];
-	
 	// Criar O Delete
-	$sql = "delete from tbusu
-					   where id = $id";
+	$sql = "delete from tbatend where codatend = $id";
 	//Executando O Comando				   
 	$delete = $conexao->query($sql);
 	
 	if($delete==true){
-		header('Location: frmbusca.php?delete=ok');
+		echo true;
 	}else{
-		header('Location: frmbusca.php?delete=erro');
+		echo false;
 	}
 	
 ?>

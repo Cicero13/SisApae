@@ -76,9 +76,9 @@
 					
 					<div class="panel">
 								<div class="panel-heading">
-									<h1 class="panel-title">Cadastro de Atendimento</h1>
+									<h1 class="panel-title">Relatórios</h1>
 									<div class="form-group">
-									   <a href="#" data-toggle="modal"  data-target="#modalNovo" class="btn btn-md btn-success pull-right">Novo Atendimento <i class="fa fa-plus"></i></a>
+									   <a href="#" data-toggle="modal"  data-target="#modalimprime" class="btn btn-md btn-success pull-right"><i class="fa fa-print"></i> Imprimir </a>
 									</div>
 								</div>
 								<?php
@@ -109,7 +109,8 @@
 									<div class="form-group">
 									<label for="exampleInputPassword1">Profissional</label>
                                                                         <select name="prof" id="prof" class="form-control" required>
-											<option value="0">Selecione Aqui</option>	
+											<option value="0">Selecione Aqui</option>
+											<option value="todos">Todos</option>												
 										
 											<?php
 												  include '../banco.php';
@@ -143,13 +144,9 @@
 									<table class="table table-hover">
 										<thead>
 											<tr>
-												<th>DATA</th>
-												<th>PROCEDIMENTO</th>
-												<th>ASSISTIDO</th>
-												<th>APAC</th>
+											
 												<th>PROFISSIONAL</th>
-                                                                                                <th>OPÇÕES</th>
-												
+												<th>QUANTIDADE</th>
 											</tr>
 										</thead>
 										<tbody id="corpo_tab">
@@ -320,16 +317,16 @@
 			}
         ?>
 		
-		<div id="formUsu" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div id="modalimprime" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-body">
                                 <div>
-                                    <center><h3>Deseja Realiza Novo Atendimento?</h3></center>
+                                    <center><h3>Deseja Realizar Impressão?</h3></center>
                                 </div>
 					<div class="modal-footer">
                                     <div class="center">
-						<a href="#" class="btn btn-success" data-toggle="modal"  data-target="#modalNovo" data-dismiss="modal">
+						<a href="#" id="bnt_imprimir" class="btn btn-success">
                                             <i class="fa fa-check" ></i>&nbsp;Confirmar
 						</a>
 					<button class="btn btn-danger" id="nao" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp;Cancelar</button>
@@ -591,7 +588,7 @@ $('#modalNovo').on('shown.bs.modal', function () {
 							
 							 if (resposta != false) {
 									//$("#modalAguarde").modal('hide'); 
-									alert('iei');
+									//alert('iei');
 									$("#mostrar").click(); 
 									//$("#modaldelete").modal('hide');
 								}
@@ -603,8 +600,55 @@ $('#modalNovo').on('shown.bs.modal', function () {
 				}				
              
 	    });
+	
 
-
+					$("#modalimprime").on("click", "a", function(){
+						var id2 = $(this).attr("id");
+						
+						var datai = $("#datai").val();
+						var dataf = $("#dataf").val();
+						var prof = $("#prof").children(":selected").attr("value");
+						
+						
+						if(id2=='bnt_imprimir'){
+							   if((prof == '') || (datai == '') || (dataf == '')){
+								   
+										$(function(){
+                                
+                                  $.notify({
+                                    title: '<strong>AVISO!</strong> <br />',
+                                    icon: 'glyphicon glyphicon-ok',
+                                    message: "Informe todos os dados!"
+                                  },{
+                                    type: 'warning',
+                                    delay: 2,
+                                    animate: {
+                                        enter: 'animated fadeInDown',
+                                        exit: 'animated fadeOutRight'
+                                    },
+                                    placement: {
+                                      from: "top",
+                                      align: "center"
+                                    },
+                                    offset: 100,
+                                    spacing: 100,
+                                    z_index: 9999,
+                                  });
+                                
+                              });
+							}else{
+								//alert("iei");
+							$("#modalimprime").modal('hide'); 
+						      var url = "report.php?datai="+datai+"&dataf="+dataf+"&prof="+prof;
+							  window.open(url, '_blank');
+							  
+							}
+							
+						}
+					});
+				
+								
+       
 	 
 		
 		

@@ -3,21 +3,28 @@
 	include('../banco.php');
 	
 	//Recebendo Variaveis
-	$prof = $_POST['selectprof'];
-	$pac = $_POST['selectpac'];
-	$proc = $_POST['selectproc'];
-        $data = $_POST['dataininovo'];
+	$prof = $_POST['prof'];
+	$pac = $_POST['pac'];
+	$proc = $_POST['proc'];
+        $data = $_POST['data'];
+		$hora = $_POST['hora'];
+		$apac = $_POST['apac'];
+		
+		session_start();
 	$usu =  $_SESSION['id'];
         
-	$sql = "insert into tbatend(codatend,codpac,codproc,codprof,codusu,data)
-                                values(null,'$pac','$proc','$prof','$usu','$data')";
+	$sql = "insert into tbatend(codatend,codpac,codproc,codprof,codusu,data, hora, cod_aut)
+                                values(null,'$pac','$proc','$prof','$usu','$data','$hora','$apac')";
 					   
 	$inserir = $conexao->query($sql);
 	
 	if($inserir==true){
-		header('Location: frmbusca.php?insert=ok');
+		//header('Location: frmbusca.php?insert=ok');
+		echo true;
+		//echo $sql;
 	}else{
-		header('Location: frmcad.php?insert=erro');
+		//header('Location: frmbusca.php?insert=erro');
+		echo false;
 	}
 	
 ?>

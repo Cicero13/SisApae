@@ -195,7 +195,7 @@ tbody tr td
 {
 	/*padding               : 5px 10px;*/
 	padding               : 2px 10px; /* redução altura da celula  no corpo do boletim*/
-	border-top            : 1px solid #000; //*borda da celula td*/
+	border-top            : 1px solid #000; /*borda da celula td*/
     color                 : #666;
 	border: 				1.2px solid #C0C0C0;
 }

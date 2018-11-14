@@ -19,47 +19,53 @@
 			  //sql para limpar tabela temp
 			  
 			 if($prof == "todos"){
-		//Criando a Consulta
-		$sql = "select tbproc.num_proc AS codigo,tbproc.descricao as proc,  tbprof.nome as nome,tbprof.especialidade as espec, COUNT(tbatend.codatend) as qtd from tbatend	
-			inner join tbproc on (tbproc.codproc=tbatend.codproc)
-			inner join tbpac on (tbpac.codpac=tbatend.codpac)
-			inner join tbprof on (tbprof.codprof=tbatend.codprof)
-			where tbatend.data between '$datai' and '$dataf' GROUP BY(tbprof.codprof)";
+                            //Criando a Consulta
+                            $sql = "select tbproc.num_proc AS codigo,tbproc.descricao as proc,  tbprof.nome as nome,tbprof.especialidade as espec, COUNT(tbatend.codatend) as qtd from tbatend	
+                                    inner join tbproc on (tbproc.codproc=tbatend.codproc)
+                                    inner join tbpac on (tbpac.codpac=tbatend.codpac)
+                                    inner join tbprof on (tbprof.codprof=tbatend.codprof)
+                                    where tbatend.data between '$datai' and '$dataf' GROUP BY(tbprof.codprof)";
 														 
-		$consulta = $conexao->query($sql);
+                                    $consulta = $conexao->query($sql);
 		
-	}else {
-		$sql = "select tbproc.num_proc AS codigo,tbproc.descricao as proc,  tbprof.nome as nome,tbprof.especialidade as espec, COUNT(tbatend.codatend) as qtd from tbatend	
-			inner join tbproc on (tbproc.codproc=tbatend.codproc)
-			inner join tbpac on (tbpac.codpac=tbatend.codpac)
-			inner join tbprof on (tbprof.codprof=tbatend.codprof)
-			where tbatend.data between '$datai' and '$dataf' and tbatend.codprof = '$prof'";
+                        }else {
+                            $sql = "select tbproc.num_proc AS codigo,tbproc.descricao as proc,  tbprof.nome as nome,tbprof.especialidade as espec, COUNT(tbatend.codatend) as qtd from tbatend	
+                                    inner join tbproc on (tbproc.codproc=tbatend.codproc)
+                                    inner join tbpac on (tbpac.codpac=tbatend.codpac)
+                                    inner join tbprof on (tbprof.codprof=tbatend.codprof)
+                                    where tbatend.data between '$datai' and '$dataf' and tbatend.codprof = '$prof'";
 														 
-		$consulta = $conexao->query($sql);
-	}	
+                                    $consulta = $conexao->query($sql);
+                        }	
 			 		  
 			
 			 
 			   if ($consulta->num_rows > 0) {//se encontrar algum valor
 				  
 				  //topo do lista do ranking
-								 echo '<div>';
-									 echo '<center><font face="arial" size="-1">';
-									 echo '<img src="../assets/img/apae1.jpg">';
-									 echo 	'<h2>APAE</h2>';
-									 echo 	'<h3>LOGRADOURO - BAIRRO - CIDADE-UF</h3>';
-									 //echo 	'<p>'.CEP.' - '.CNPJ.'</p>';
-									 
-									 echo '</center></face>';
-								echo '</div>';
-								//abrindo tabela	
-								echo '<table width="100%">';
-								//pegando o médico
-								$linha=$consulta->fetch_array(MYSQLI_ASSOC);
+				echo '<div>';
+                                    echo '<center><font face="arial" size="-1">';
+                                    echo '<img src="../assets/img/apae1.jpg">';
+                                    echo 	'<h2>APAE</h2>';
+                                    echo 	'<h3>LOGRADOURO - BAIRRO - CIDADE-UF</h3>';
+                                    echo '</center></face>';
+                                echo '</div>';
+				
+                                //abrindo tabela            
+				echo '<table width="100%">';
+                                    //pegando o médico
+                                    $linha=$consulta->fetch_array(MYSQLI_ASSOC);
+									if($prof == 'todos'){
 								echo '<thead>';
+								echo		'<tr>
+												<th colspan="100%">Profissional: '.$prof.'</th>
+											</tr>';
+									}else{
+										echo '<thead>';
 								echo		'<tr>
 												<th colspan="100%">Profissional: '.$linha['nome'].' Especialista em '.$linha['espec'].'</th>
 											</tr>';
+									}	
 											$d1 = explode('-',$datai);
 											$d2 = explode('-',$dataf);
 											
@@ -69,7 +75,9 @@
 											</tr>';
 								//dados do aluno
 									
-								//cabeçalho da tabela de classificação	
+								//cabeçalho da tabela de classificação
+								$consulta = $conexao->query($sql);
+								if ($consulta->num_rows > 0) {
 								echo '<tr >
 										
 										<th width="5%" scope="col">Nº</th>
@@ -107,7 +115,8 @@
 								</tfoot>';
 								
 								//fechando tabela
-								 echo '</table>';					
+								 echo '</table>';		
+								}
 			  }else{
 			
 			//echo 'Turma '.$_GET['turma'].'<br>';

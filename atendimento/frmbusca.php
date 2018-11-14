@@ -107,7 +107,7 @@
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
-									<label for="exampleInputPassword1">Profissional</label>
+									<label for="exampleInputPassword1">Profissional:</label>
                                                                         <select name="prof" id="prof" class="form-control" required>
 											<option value="0">Selecione Aqui</option>	
 										
@@ -130,7 +130,7 @@
 								<div class="col-md-2">
 									<div class="form-group">
 										<br>
-                                        <button type="button" class="btn btn-md btn-primary" style="margin-top:4px" id="mostrar">Mostrar</button> 
+                                                                            <button type="button" class="btn btn-md btn-primary" style="margin-top:4px" id="mostrar">Mostrar</button> 
 									</div>
 								</div>
                                                             </form>	
@@ -139,16 +139,16 @@
 								<div class="row">
 								  
 								</div>
-								
+								<!-- Input que contém o ultimo id válido-->
+							<input type="hidden" id="id_geral" name="id_geral">
 									<table class="table table-hover">
 										<thead>
 											<tr>
-												<th>DATA</th>
+                                                                                                <th style="width:125px">DATA</th>
 												<th>PROCEDIMENTO</th>
 												<th>ASSISTIDO</th>
 												<th>APAC</th>
-												<th>PROFISSIONAL</th>
-                                                                                                <th>OPÇÕES</th>
+                                                                                                <th style="width:200px">OPÇÕES</th>
 												
 											</tr>
 										</thead>
@@ -222,126 +222,10 @@
 	<script src="../assets/vendor/bootstrap-notify/bootstrap-notify.js"></script>
 	<script src="../assets/vendor/dist/jquery-confirm.min.js"></script>
 	<script src="../assets/scripts/select2.min.js"></script>
-<?php
-
-            if(isset($_GET['insert'])){
-                if ($_GET['insert']=="ok") {
-                    ?>
-                        <script>
-                            $(function(){
-                                $(window).load(function(){
-                                  $.notify({
-                                    title: '<strong>FEITO!</strong> <br />',
-                                    icon: 'glyphicon glyphicon-ok',
-                                    message: "Cadastro realizado com sucesso!"
-                                  },{
-                                    type: 'success',
-                                    delay: 2,
-                                    animate: {
-                                        enter: 'animated fadeInDown',
-                                        exit: 'animated fadeOutRight'
-                                    },
-                                    placement: {
-                                      from: "top",
-                                      align: "center"
-                                    },
-                                    offset: 100,
-                                    spacing: 100,
-                                    z_index: 9999,
-                                  });
-                                });
-                              });
-                        </script>
-                    <?php
-                }
-			}
-			if(isset($_GET['update'])){
-				if($_GET['update'] == 'ok'){
-                ?>
-                    <script>
-                        $(function(){
-                            $(window).load(function(){
-                              $.notify({
-                                title: '<strong>FEITO!</strong> <br />',
-                                icon: 'glyphicon glyphicon-ok',
-                                message: "Dados alterados com sucesso!"
-                              },{
-                                type: 'info',
-                                delay: 2,
-                                animate: {
-                                    enter: 'animated fadeInDown',
-                                    exit: 'animated fadeOutRight'
-                                },
-                                placement: {
-                                  from: "top",
-                                  align: "center"
-                                },
-                                offset: 100,
-                                spacing: 100,
-                                z_index: 9999,
-                              });
-                            });
-                          });
-                    </script>
-                <?php
-				}
-			}
-			if(isset($_GET['delete'])){
-				if($_GET['delete'] == 'ok'){
-                    ?>
-                        <script>
-                            $(function(){
-                                $(window).load(function(){
-                                  $.notify({
-                                    title: '<strong>FEITO!</strong> <br />',
-                                    icon: 'glyphicon glyphicon-ok',
-                                    message: "O usuário foi deletado!"
-                                  },{
-                                    type: 'danger',
-                                    delay: 2,
-                                    animate: {
-                                        enter: 'animated fadeInDown',
-                                        exit: 'animated fadeOutRight'
-                                    },
-                                    placement: {
-                                      from: "top",
-                                      align: "center"
-                                    },
-                                    offset: 100,
-                                    spacing: 100,
-                                    z_index: 9999,
-                                  });
-                                });
-                              });
-                        </script>
-
-                    <?php
-				}
-			}
-        ?>
-		
-		<div id="formUsu" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <div>
-                                    <center><h3>Deseja Realiza Novo Atendimento?</h3></center>
-                                </div>
-					<div class="modal-footer">
-                                    <div class="center">
-						<a href="#" class="btn btn-success" data-toggle="modal"  data-target="#modalNovo" data-dismiss="modal">
-                                            <i class="fa fa-check" ></i>&nbsp;Confirmar
-						</a>
-					<button class="btn btn-danger" id="nao" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp;Cancelar</button>
-                                    </div>
-				</div>
-                            </div>
-			</div>
-                    </div>
-		</div>
+        
 										
-        <div class="modal fade" id="modalNovo">
-			<div class="modal-dialog modal-lg">
+        <div class="modal" id="modalNovo">
+            <div class="modal-dialog modal-lg">
 				<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -449,19 +333,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-													
-                                                        <div class="form-group">
-														<div class='col-sm-5'>
-                                                            <h4>APAC</h4>
-                                                            <div class="input-group date">
-                                                                <input type="text" id="apac" name="apac" class="form-control" required>
-                                                                <span class="input-group-addon">
-                                                                    <span class="glyphicon glyphicon-check"></span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-							
+												
                                                 </fieldset>
                                                  
                                         </div>
@@ -475,138 +347,162 @@
                         </div>
         </div>
 		
-		<div id="modalAguarde" class="modal fade">
-		  <div class="modal-dialog">
-			<div class="modal-content">
-			  <!-- dialog body -->
-			  <div class="modal-body">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<div align="center"><i class='glyphicon glyphicon-exclamation-cog'><br><br></i><img src='../assets/img/loader.gif'><br>Aguarde...<br><br><br></div>
-			  </div>
-			  <!-- dialog buttons 
-			  <div class="modal-footer"><button type="button" class="btn btn-primary">OK</button></div>-->
-			</div>
-		   </div>
-          </div>
+	<div id="modalAguarde" class="modal">
+            <div class="modal-dialog">
+		<div class="modal-content">
+                    <div class="modal-body">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<div align="center"><i class='glyphicon glyphicon-exclamation-cog'><br><br></i><img src='../assets/img/loader.gif'><br>Aguarde...<br><br><br><i id="messagem"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 		  
-		  <div id="modalSalvo" class="modal fade">
-		  <div class="modal-dialog">
-			<div class="modal-content">
-			  <!-- dialog body -->
-			  <div class="modal-body">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<div align="center"><i class='glyphicon glyphicon-exclamation-cog'><br><br></i><br>Atendimento salvo com sucesso!<br><br><br></div>
-			  </div>
-			  
-			  <!-- dialog buttons 
-			  <div class="modal-footer"><button type="button" class="btn btn-primary">OK</button></div>-->
+            <div id="modalSalvo" class="modal">
+		<div class="modal-dialog">
+                    <div class="modal-content">
+			<div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <div align="center"><i class='glyphicon glyphicon-exclamation-cog'><br><br></i><br>Atendimento salvo com sucesso!<br><br><br></div>
 			</div>
-		   </div>
-          </div>
-		  <div id="modaldelete" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-																	<div class="modal-dialog" role="document">
-																		<div class="modal-content">
-																		<form name="f1" method="POST" action="delete.php">
-																			<input type="hidden" id="id" name="id">
-																				<div class="modal-body">
-																					<div>
-																						<center><h3>Deseja excluir este Atendimento?</h3></center>
-																					</div>
-																				</div>
-																		<div class="modal-footer">
-																			<div class="center">
-																				<button type="button" id="confirma_delete" class="btn btn-success"><i class="fa fa-check"></i>&nbsp;Confirmar</button>
-																				<button class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp;Cancelar</button>
-																			</div>
-																		</div>
-																		</form>
-																		</div>
-																	</div>
-																</div>
+                    </div>
+		</div>
+            </div>
+            <div id="modalExcluido" class="modal">
+		<div class="modal-dialog">
+                    <div class="modal-content">
+			<div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <div align="center"><i class='glyphicon glyphicon-exclamation-cog'><br><br></i><br>Atendimento Excluído com sucesso!<br><br><br></div>
+			</div>
+                    </div>
+		</div>
+            </div>
+            <div id="modalAlterado" class="modal">
+		<div class="modal-dialog">
+                    <div class="modal-content">
+			<div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <div align="center"><i class='glyphicon glyphicon-exclamation-cog'><br><br></i><br>Atendimento Alterado com sucesso!<br><br><br></div>
+			</div>
+                    </div>
+		</div>
+            </div>
+        
+            <div id="modaldelete" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+                    <div class="modal-content">
+			<form name="f1" method="POST" action="delete.php">
+                            <input type="hidden" id="id_delete" name="id_delete">
+							
+                            <div class="modal-body">
+				<div>
+                                    <center><h3>Deseja excluir este Atendimento?</h3></center>
+				</div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="center">
+                                    <button type="button" id="confirma_delete" class="btn btn-success"><i class="fa fa-check"></i>&nbsp;Confirmar</button>
+                                    <button class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp;Cancelar</button>
+				</div>
+                            </div>
+			</form>
+                    </div>
+		</div>
+            </div>
 																
-					<div id="modalapac" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-																	<div class="modal-dialog" role="document">
-																		<div class="modal-content">
-																		<form name="f1" method="POST" action="">
-																			<input type="hidden" id="id" name="id">
-																				<div class="modal-body">
-																					<div>
-																						<center><h3>Informe o código APAC</h3></center>
-																						<input type="text" id="cod_apac" name="cod_apac" class="form-control">
-																					</div>
-																				</div>
-																		<div class="modal-footer">
-																			<div class="center">
-																				<button type="button" id="confirma_apac" class="btn btn-success"><i class="fa fa-check"></i>&nbsp;Atualizar</button>
-																				<button class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp;Cancelar</button>
-																			</div>
-																		</div>
-																		</form>
-																		</div>
-																	</div>
-																</div>
+            <div id="modalapac" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+                    <div class="modal-content">
+			<form name="f1" method="POST" action="">
+                            <div class="modal-body">
+				<div>
+                                    <center><h3>Informe o código APAC</h3></center>
+                                    <input type="text" id="cod_apac" name="cod_apac" class="form-control">
+				</div>
+                            </div>
+                            <div class="modal-footer">
+				<div class="center">
+                                    <button type="button" id="confirma_apac" class="btn btn-success"><i class="fa fa-check"></i>&nbsp;Atualizar</button>
+                                    <button class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp;Cancelar</button>
+				</div>
+                            </div>
+			</form>
+                    </div>
+		</div>
+            </div>
 										
 										
 										
 <script>
 
 $(document).ready(function(){ 
-$('#modalNovo').on('shown.bs.modal', function () {
-           $('.js-example-basic-single').select2();
+        //Adicionando busca no select 
+        $('#modalNovo').on('shown.bs.modal', function () {
+             $('.js-example-basic-single').select2();
         });
 
         $("table").on("click", "a", function(){
-        		var id = $(this).attr("id");
-				var btn_tipo = id.split('|');
-				if (btn_tipo[0] == 'E'){
+        var id = $(this).attr("id");
+		var btn_tipo = id.split('|');
+		if (btn_tipo[0] == 'E'){
+                    $("#id_geral").val(btn_tipo[1]);	
 					$("#modaldelete").modal('show');	
-					$("#modaldelete").on("click", "button", function(){
-						var id2 = $(this).attr("id");
-						
-						if(id2=='confirma_delete'){
-							$("#modaldelete").modal('hide');			
-							$("#modalAguarde").modal('show'); //carregando o modal de processamento de notas
-							$.post('delete.php', {id: btn_tipo[1]}, function(resposta) {
-							
-							 if (resposta != false) {
-									//$("#modalAguarde").modal('hide'); 
-									$("#mostrar").click(); 
-									//$("#modaldelete").modal('hide');
-								}
-							 });  
-						}else{
-							
-						}
-					});
-				}
-				if (btn_tipo[0] == 'A'){
-					$("#modalapac").modal('show');	
-					$("#modalapac").on("click", "button", function(){
-						var id2 = $(this).attr("id");
-						var cod_apac = $('#cod_apac').val();
-						if(id2=='confirma_apac'){
-							$("#modalapac").modal('hide');			
-							$("#modalAguarde").modal('show'); //carregando o modal de processamento de notas
-							$.post('atualizapac.php', {id: btn_tipo[1], cod_apac: cod_apac}, function(resposta) {
-							
-							 if (resposta != false) {
-									//$("#modalAguarde").modal('hide'); 
-									alert('iei');
-									$("#mostrar").click(); 
-									//$("#modaldelete").modal('hide');
-								}
-							 });  
-						}else{
-							
-						}
-					});
-				}				
+					
+                    
+		}
+		if (btn_tipo[0] == 'A'){
+					$("#id_geral").val(btn_tipo[1]);
+                    $("#modalapac").modal('show');	
+                   
+		}				
              
-	    });
+	});
 
 
-	 
+	 $("#confirma_delete").click(function() {
 		
+			var id = $("#id_geral").val();
+						
+			
+                            $("#modaldelete").modal('hide');			
+                            $("#modalAguarde").modal('show'); //carregando o modal de processamento de notas
+                            $.post('delete.php', {id: id}, function(resposta) {
+							
+                                if(resposta != false) {
+                                    //$("#modalAguarde").modal('hide'); 
+                                    $("#mostrar").click();
+                                    $("#modalExcluido").modal('show');
+                                    $("#modaldelete").modal('hide');
+                                }
+                            });  
+		 
+	 });
+
+
+
+	$("#confirma_apac").click(function() {
+		
+			var id = $("#id_geral").val();
+
+			var cod_apac = $('#cod_apac').val();
+
+			$("#modalapac").modal('hide');			
+			$("#modalAguarde").modal('show'); //carregando o modal de processamento de notas
+			//alert(btn_tipo[0]+ " | "+btn_tipo[1]);
+			//alert('codapac: '+cod_apac);
+			$.post('atualizapac.php', {id: id, cod_apac: cod_apac}, function(resposta) {
+			     if (resposta != false) {
+					//$("#modalAguarde").html(resposta);
+					$("#mostrar").click();
+					$("#modalAlterado").modal('show');
+					$("#novo").html(resposta);
+			}
+		});  
+						
+                     
+		 
+	 });	 
 		
 		$("#btnnovoconfirma").click(function() {
 			// Colocamos os valores de cada campo em uma v?avel para facilitar a manipula?
@@ -654,7 +550,7 @@ $('#modalNovo').on('shown.bs.modal', function () {
 								
 								$("#modalAguarde").modal('hide'); 
 								$("#modalNovo").modal('hide'); 
-							    $("#modalSalvo").modal('show');
+                                                                $("#modalSalvo").modal('show');
 								
 							}
 						
@@ -709,7 +605,7 @@ $('#modalNovo').on('shown.bs.modal', function () {
 		}else{
 		          
 			
-				$("#modalAguarde").modal('show'); //carregando o modal de processamento de notas
+				$("#modalAguarde").modal('show'); //carregando o modal de processamento
 				$.post('busca.php', {d1: d1, d2: d2, prof: prof}, function(resposta) {
 						
 						if (resposta != false) {

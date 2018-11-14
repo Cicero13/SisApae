@@ -12,7 +12,7 @@
 <body>
 
 <?php
-		if(isset($_GET['prof'])){
+	if(isset($_GET['prof'])){
 			$prof=$_GET['prof']; // pega profissional
 			$datai=$_GET['datai']; // pega data inicial
 			$dataf=$_GET['dataf']; // pega data final
@@ -28,16 +28,14 @@
 		$consulta = $conexao->query($sql);
 			
 			 
-			   if ($consulta->num_rows > 0) {//se encontrar algum valor
+			if($consulta->num_rows > 0) {//se encontrar algum valor
 				  
 				  //topo do lista do ranking
 								 echo '<div>';
 									 echo '<center><font face="arial" size="-1">';
 									 echo '<img src="../assets/img/apae1.jpg">';
-									 echo 	'<h2>APAE</h2>';
-									 echo 	'<h3>LOGRADOURO - BAIRRO - CIDADE-UF</h3>';
-									 //echo 	'<p>'.CEP.' - '.CNPJ.'</p>';
-									 
+									 echo 	'<br>';
+									 echo 	'<br>';
 									 echo '</center></face>';
 								echo '</div>';
 								//abrindo tabela	
@@ -53,7 +51,7 @@
 											
 											
 								echo		'<tr>
-												<th colspan="100%">LISTAGEM DE PROCEDIMENTOS POR PROFISSIONAL | Período: '.$d1[2].'/'.$d1[1].'/'.$d1[0].' à '.$d2[2].'/'.$d2[1].'/'.$d2[0].'</th>
+												<th colspan="100%">LISTAGEM DE ATENDIMENTOS POR PROFISSIONAL | Período: '.$d1[2].'/'.$d1[1].'/'.$d1[0].' à '.$d2[2].'/'.$d2[1].'/'.$d2[0].'</th>
 											</tr>';
 								//dados do aluno
 									
@@ -63,26 +61,23 @@
 										<th width="5%" scope="col">Nº</th>
 										<th>CÓDIGO</th>
 										<th>PROCEDIMENTO</th>
-										<th>QUANTIDADE</th>
-										
-										
+										<th>QUANTIDADE</th>	
 									 </tr>';
 								echo '</thead>';
 								//abrindo corpo da tabela
 								echo '<tbody>';		
-								$cont=1;
+									$cont=1;
+									$consulta = $conexao->query($sql);
 								while($linha=$consulta->fetch_array(MYSQLI_ASSOC)){
 									
 									echo '<tr>';
 									  
 									  echo '<td>'.$cont.'</td>';
-									  echo '<td>'.strtoupper($linha['cod']).'</td>';
+									  echo '<td>'.strtoupper($linha['codigo']).'</td>';
 									  echo '<td>'.strtoupper($linha['proc']).'</td>';
 									  echo '<td>'.strtoupper($linha['qtd']).'</td>';
 									  echo '</tr>'; 
 									  $cont++;
-									//preenchendo matriz com os resultados da busca sql na ordem
-									// array_push($rank,array($linha2['codalu'],$linha2['aluno'],$linha2['media_geral'],$linha2['rank']));
 								}	
 					//fechando corpo da tabela
 					echo '</tbody>';
@@ -97,18 +92,11 @@
 								
 								//fechando tabela
 								 echo '</table>';					
-			  }else{
-			
-			//echo 'Turma '.$_GET['turma'].'<br>';
-			//echo 'Ano '.$_GET['ano'];
-			echo'consulta vazia';
-		}
-		}
-
-		
-		
-		
-		
+			}else{
+				echo'consulta vazia';
+			}
+	}
+	
 ?>
 </body>
 </html>

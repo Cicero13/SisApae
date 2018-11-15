@@ -57,20 +57,20 @@
 								<ul class="nav">
 									<li><a href="usuario/frmbusca.php" class=""><i class="fa fa-user"></i>Usuário</a></li>
 									<li><a href="assistido/frmbusca.php" class=""><i class="fa fa-child"></i>Assistido</a></li>
-                                                                        <li><a href="profissional/frmbusca.php" class=""><i class="fa fa-user-md"></i>Profissional</a></li>
+                                    <li><a href="profissional/frmbusca.php" class=""><i class="fa fa-user-md"></i>Profissional</a></li>
 									<li><a href="procedimento/frmbusca.php" class=""><i class="fa fa-tasks"></i>Procedimentos</a></li>
 								</ul>
 							</div>
 						</li>
-                                                <li><a href="atendimento/frmbusca.php" class=""><i class="lnr lnr-dice"></i> <span>Atendimentos</span></a></li>
+                        <li><a href="atendimento/frmbusca.php" class=""><i class="lnr lnr-dice"></i> <span>Atendimentos</span></a></li>
 						<li>
 							<a href="#subPages2" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-add"></i><span>Relatórios</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages2" class="collapse ">
 								<ul class="nav">
 									<li><a href="relatorio/frmbusca.php" class=""><i class="lnr lnr-dice"></i> <span>Contagem Geral</span></a></li>
-									<li><a href="relatorio/frmbusca1.php" class=""><i class="lnr lnr-dice"></i> <span>Contagem de Profissional</span></a></li>
-                                    <li><a href="relatorio/frmapac.php" class=""><i class="lnr lnr-dice"></i> <span>Contagem APAC</span></a></li>
-                                    <li><a href="relatorio/frmbpa.php" class=""><i class="lnr lnr-dice"></i> <span>Contagem BPA</span></a></li>
+									<li><a href="relatorio/frmbusca1.php" class=""><i class="lnr lnr-dice"></i> <span>Contagem de Profissional</span></a></li>		
+                                                                        <li><a href="relatorio/frmapac.php" class=""><i class="lnr lnr-dice"></i> <span>Contagem APAC</span></a></li>		
+                                                                        <li><a href="relatorio/frmbpa.php" class=""><i class="lnr lnr-dice"></i> <span>Contagem BPA</span></a></li>		
 								</ul>
 							</div>
 						</li>

@@ -146,48 +146,14 @@
 											<tr>
                                                                                                 <th style="width:125px">DATA</th>
 												<th>PROCEDIMENTO</th>
+                                                                                                <th>CÓDIGO</th> 
 												<th>ASSISTIDO</th>
-												<th>APAC</th>
                                                                                                 <th style="width:200px">OPÇÕES</th>
 												
 											</tr>
 										</thead>
 										<tbody id="corpo_tab">
-										   <?php
-											if((isset($_POST['datai']))&&(isset($_POST['dataf']))&&(isset($_POST['prof']))){
-												//Recebendo Valor do Campo Busca
-												$datai = $_POST['datai'];
-												$dataf = $_POST['dataf'];
-												$prof = $_POST['prof'];
-												
-												//Acesso ao Banco
-												include('../banco.php');
-												
-												//Criando a Consulta
-												$sql = "select tbatend.codatend as codatend,tbatend.data as data,tbproc.descricao as proc,tbpac.nome as pac,tbprof.codprof as codprof, tbprof.nome as prof from tbatend	
-														 inner join tbproc on (tbproc.codproc=tbatend.codproc)
-														 inner join tbpac on (tbpac.codpac=tbatend.codpac)
-														 inner join tbprof on (tbprof.codprof=tbatend.codprof)
-														 where tbatend.data between '$datai' and '$dataf' and tbprof.codprof='$prof' ";
-														 
-													
-												$consulta = $conexao->query($sql);
-												
-											
-												if($consulta->num_rows > 0){
-													echo '<center><span class="label label-info">RESULTADOS</span></center>';
-													while($linha = $consulta->fetch_array(MYSQLI_ASSOC)){
-														?>
-														
-														<?php
-													}
-												} else {
-													echo '<center><span class="label label-danger">CONSULTA VAZIA</span></center>';
-												}
-														
-											}
-											
-										?>	           
+										              
 										</tbody>
 									</table>
 							
@@ -333,7 +299,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-												
                                                 </fieldset>
                                                  
                                         </div>
@@ -409,31 +374,7 @@
 			</form>
                     </div>
 		</div>
-            </div>
-																
-            <div id="modalapac" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-                    <div class="modal-content">
-			<form name="f1" method="POST" action="">
-                            <div class="modal-body">
-				<div>
-                                    <center><h3>Informe o código APAC</h3></center>
-                                    <input type="text" id="cod_apac" name="cod_apac" class="form-control">
-				</div>
-                            </div>
-                            <div class="modal-footer">
-				<div class="center">
-                                    <button type="button" id="confirma_apac" class="btn btn-success"><i class="fa fa-check"></i>&nbsp;Atualizar</button>
-                                    <button class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp;Cancelar</button>
-				</div>
-                            </div>
-			</form>
-                    </div>
-		</div>
-            </div>
-										
-										
-										
+            </div>									
 <script>
 
 $(document).ready(function(){ 

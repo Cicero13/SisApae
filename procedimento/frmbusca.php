@@ -267,7 +267,7 @@
                                   $.notify({
                                     title: '<strong>FEITO!</strong> <br />',
                                     icon: 'glyphicon glyphicon-ok',
-                                    message: "O usuário foi deletado!"
+                                    message: "O Procedimento foi deletado!"
                                   },{
                                     type: 'danger',
                                     delay: 2,

@@ -14,7 +14,7 @@
 	
 	$prof = $_POST['prof'];
 	
-	$sql = "select tbatend.codatend as codatend,DATE_FORMAT( tbatend.data,  '%d-%m-%Y' ) AS data, tbatend.cod_aut, tbproc.descricao as proc,tbpac.nome as pac,tbprof.codprof as codprof, tbprof.nome as prof from tbatend	
+	$sql = "select tbatend.codatend as codatend,DATE_FORMAT( tbatend.data,  '%d-%m-%Y' ) AS data, tbproc.num_proc as codigo, tbproc.descricao as proc,tbpac.nome as pac,tbprof.codprof as codprof, tbprof.nome as prof from tbatend	
                     inner join tbproc on (tbproc.codproc=tbatend.codproc)
                     inner join tbpac on (tbpac.codpac=tbatend.codpac)
                     inner join tbprof on (tbprof.codprof=tbatend.codprof)
@@ -30,14 +30,11 @@
 			echo '<tr>
 				<td>'.$linha['data'].'</td>
 				<td>'.$linha['proc'].'</td>
+                                <td>'.$linha['codigo'].'</td>
 				<td>'.$linha['pac'].'</td>
-				<td>'.$linha['cod_aut'].'</td>
 				<td>
                                     <a title="Excluir Atendimento"  id="E|'.$linha['codatend'].'" class="btn btn-danger" href="#">
                                          <i class="fa fa-trash" style="color: white;"></i><span class="icon-name"></span>
-                                    </a>
-                                    <a title="Alterar APAC" id="A|'.$linha['codatend'].'" class="btn btn-info" href="#">
-					<i class="fa fa-clipboard" style="color: white;"></i>&nbsp; APAC<span class="icon-name"></span>
                                     </a>
 				</td>
 			</tr>';

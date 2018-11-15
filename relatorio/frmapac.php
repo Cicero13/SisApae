@@ -316,7 +316,7 @@ $('#modalNovo').on('shown.bs.modal', function () {
 							}else{
 								//alert("iei");
 							$("#modalimprime").modal('hide'); 
-						      var url = "report.php?datai="+datai+"&dataf="+dataf+"&prof="+prof;
+						      var url = "reportapac.php?datai="+datai+"&dataf="+dataf+"&prof="+prof;
 							  window.open(url, '_blank');
 							  
 							}
